@@ -1,0 +1,63 @@
+[user]
+	name = Abel Soares Siqueira
+	email = abel.s.siqueira@gmail.com
+[github]
+	user = abelsiqueira
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	grep = auto
+	ui = true
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	df = diff --color-words
+	st = status
+	ff = merge --ff-only
+	lg = log --pretty=format:'%Credcommit %H\n%CgreenAuthor: %an <%ae>\n%C(white)%ad (%ar)\n%C(cyan)%s\n' -3
+	sw = switch
+	up = fetch --all --prune
+	last = log -1 HEAD
+	force = push --force-with-lease
+	gethash = log -1 --pretty=format:%h
+	graph = log --graph --exclude=refs/remotes/*/gh-pages --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar, %ai)%C(reset)%C(bold red)%d%C(reset)%n%C(white)%s%C(reset) %C(bold white)%an%C(reset)%n' --abbrev-commit
+	lint = !pre-commit run -a
+	logdate = log --pretty=format:'%Cred%ar: %Cgreen %s'
+	maint = maintenance start
+	smallgraph = log --graph --exclude=refs/remotes/origin/gh-pages --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset)%C(bold red)%d%C(reset)' --abbrev-commit --date=iso
+	staash = stash --all
+	fork-point = merge-base --fork-point main 
+[help]
+	autocorrect = 1
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = /home/abel/.gitignore_global
+	pager = bat
+[credential]
+	helper = cache --timeout=800000
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[hub]
+	protocol = https
+[init]
+	defaultBranch = main
+[includeIf "gitdir:~/projects/work/"]
+	path = ~/projects/work/.gitconfig
+[rerere]
+	enabled = true
+	autoupdate = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[maintenance]
+	repo = ~/projects/work/NextGenOpt/TulipaEnergyModel.jl
+	repo = /Users/abelsiqueira/projects/work/MOPO/SpineOpt.jl
+	repo = /Users/abelsiqueira/projects/work/COPIERTemplate.jl

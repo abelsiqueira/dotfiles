@@ -1,0 +1,60 @@
+# Common configuration for Bash and Zshrc (hopefully)
+
+# Aliases - sorted
+alias c="clear"
+alias cat="bat"
+alias df="df -Th"
+alias du="du -h"
+alias dusort="du -s -BM * | sort -n"
+alias free="free -h"
+alias git-deletable-branches="git branch --merged | grep -v main"
+alias jlp="julia --project"
+alias k="kubectl"
+alias l="ls"
+alias lsdir="ls -d */"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias q="exit"
+alias sort="LC_ALL=C sort"
+alias vi="vim"
+alias vim="nvim"
+alias vimdiff="nvim -d"
+alias zshrc="vim ~/.zshrc"
+
+# ENV
+export EDITOR=vim
+PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
+PATH="$HOME/go/bin:$PATH"
+PATH="$HOME/.juliaup/bin:$HOME/.julia/bin:$PATH"
+export PATH
+export TERM=xterm-256color
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# History
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+
+# ssh-agent
+# https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login
+SSH_ENV="$HOME/.ssh/agent-environment"
+
+function start_agent {
+	echo "Initializing new SSH agent..."
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
+	echo succeeded
+	chmod 600 "${SSH_ENV}"
+	. "${SSH_ENV}" >/dev/null
+	/usr/bin/ssh-add
+}
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+	. "${SSH_ENV}" >/dev/null
+	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null || {
+		start_agent
+	}
+else
+	start_agent
+fi

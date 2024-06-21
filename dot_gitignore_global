@@ -1,0 +1,12 @@
+*~
+*.[oa]
+*.swp
+
+*.py[cod]
+*.egg-info
+
+.vscode
+.history
+Manifest.toml
+
+swap-pane
