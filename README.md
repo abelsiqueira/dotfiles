@@ -44,10 +44,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 nvm install latest
 ```
 
-Finally, copy these files using `chezmoi`.
+Finally, copy these files using [chezmoi](https://www.chezmoi.io).
 
 ```bash
-chezmoi apply
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply abelsiqueira
 ```
 
 Finishing touches:
