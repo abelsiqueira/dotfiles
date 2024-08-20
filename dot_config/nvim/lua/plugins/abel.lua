@@ -1,3 +1,17 @@
+local highlight = { "HL1", "HL2", "HL3", "HL4" }
+
+local hooks = require("ibl.hooks")
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "HL1", { fg = "#7e3930" })
+    vim.api.nvim_set_hl(0, "HL2", { fg = "#7e642f" })
+    vim.api.nvim_set_hl(0, "HL3", { fg = "#467a35" })
+    vim.api.nvim_set_hl(0, "HL4", { fg = "#474d98" })
+end)
+
+-- require("ibl").setup({ indent = { highlight = highlight } })
+
 vim.g.editorconfig = true
 
 return {
@@ -94,6 +108,16 @@ return {
     },
 
     { "akinsho/git-conflict.nvim", version = "*", config = true },
+
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            indent = {
+                highlight = highlight,
+            },
+        },
+    },
 
     -- {
     --   "michaelb/sniprun",
