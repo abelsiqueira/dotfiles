@@ -14,6 +14,12 @@ end)
 
 vim.g.editorconfig = true
 
+vim.filetype.add({
+    extension = {
+        cff = "yaml",
+    },
+})
+
 return {
     -- To disable things:
     -- { "stuff/stuff", enabled = false }

@@ -37,7 +37,7 @@
 [core]
 	editor = vim
 	excludesfile = /home/abel/.gitignore_global
-	pager = bat
+	pager = delta
 [credential]
 	helper = cache --timeout=800000
 [filter "lfs"]
@@ -62,3 +62,12 @@
 	repo = ~/projects/work/NextGenOpt/TulipaEnergyModel.jl
 	repo = /Users/abelsiqueira/projects/work/MOPO/SpineOpt.jl
 	repo = /Users/abelsiqueira/projects/work/COPIERTemplate.jl
+	repo = /Users/abelsiqueira/projects/work/bestie/python-template
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
