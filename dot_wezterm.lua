@@ -107,5 +107,9 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.window_background_opacity = 0.7
+config.use_fancy_tab_bar = false -- Actually think it looks nicer
+config.hide_tab_bar_if_only_one_tab = true
+
 -- and finally, return the configuration to wezterm
 return config
