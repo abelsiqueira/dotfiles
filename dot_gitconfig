@@ -13,8 +13,10 @@
 	br = branch
 	ci = commit
 	co = checkout
-	df = diff --color-words
-	dfcsv = diff --color-words --word-diff-regex="[^[:space:],]+"
+	df = diff
+  #df = diff --color-words # diff --color-words conflicts with nice delta output
+	dfcsv = diff --word-diff-regex="[^[:space:],]+"
+  # dfcsv = diff --color-words --word-diff-regex="[^[:space:],]+"
 	st = status
 	ff = merge --ff-only
 	lg = log --pretty=format:'%Credcommit %H\n%CgreenAuthor: %an <%ae>\n%C(white)%ad (%ar)\n%C(cyan)%s\n' -3
