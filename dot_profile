@@ -22,6 +22,7 @@ alias zshrc="vim ~/.zshrc"
 
 # ENV
 export EDITOR=vim
+export VISUAL=nvim
 PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.juliaup/bin:$HOME/.julia/bin:$PATH"

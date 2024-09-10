@@ -32,6 +32,7 @@
 	smallgraph = log --graph --exclude=refs/remotes/origin/gh-pages --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset)%C(bold red)%d%C(reset)' --abbrev-commit --date=iso
 	staash = stash --all
 	fork-point = merge-base --fork-point main 
+  subs = !git submodule init && git submodule update
 [help]
 	autocorrect = 1
 [push]
