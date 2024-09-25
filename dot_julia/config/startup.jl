@@ -1,4 +1,5 @@
 # Original: https://github.com/fredrikekre/.dotfiles/blob/master/.julia/config/startup.jl
+using REPL
 
 if Base.isinteractive() &&
    (local REPL = get(Base.loaded_modules, Base.PkgId(Base.UUID("3fa0cd96-eef1-5676-8a61-b3b8758bbffb"), "REPL"), nothing); REPL !== nothing)
